@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgww5kojqlpwl"]
+
+[ext_resource type="Script" path="res://scripts/test_systems.gd" id="1_5l2lt"]
+[ext_resource type="PackedScene" uid="uid://bclvnbqpm4dtn" path="res://scenes/player.tscn" id="1_avw86"]
+[ext_resource type="PackedScene" uid="uid://h0oosro41gkg" path="res://scenes/debug_cat.tscn" id="2_nb6re"]
+
+[node name="testSystems" type="Node2D"]
+script = ExtResource("1_5l2lt")
+
+[node name="Player" parent="." instance=ExtResource("1_avw86")]
+position = Vector2(108, 101)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -20)
+limit_left = 0
+limit_top = 0
+
+[node name="DebugCat" parent="." instance=ExtResource("2_nb6re")]
+position = Vector2(200, 123)

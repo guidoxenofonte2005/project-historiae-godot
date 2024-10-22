@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bclvnbqpm4dtn"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4wsnh"]
+[ext_resource type="Texture2D" uid="uid://3xgd5gcghnpr" path="res://assets/characters/filip/idle/idleFilip.png" id="2_w62wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8u68"]
+atlas = ExtResource("2_w62wt")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6po4"]
+atlas = ExtResource("2_w62wt")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etqoy"]
+atlas = ExtResource("2_w62wt")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rxj6"]
+atlas = ExtResource("2_w62wt")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmbl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8u68")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_x6po4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etqoy")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_2rxj6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoccf"]
+size = Vector2(14, 45)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4wsnh")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dmbl7")
+animation = &"idle"
+frame_progress = 0.405482
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_yoccf")

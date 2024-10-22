@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ykpkcaom0tvd"]
+
+[ext_resource type="Texture2D" uid="uid://c1opih2kdy145" path="res://assets/images/interactButton.png" id="1_5s8xy"]
+[ext_resource type="Script" path="res://scripts/action_button.gd" id="2_v4dua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp33n"]
+atlas = ExtResource("1_5s8xy")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44j8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp33n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ActionButton" type="AnimatedSprite2D"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_44j8b")
+script = ExtResource("2_v4dua")

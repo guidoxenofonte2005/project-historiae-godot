@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://h0oosro41gkg"]
+
+[ext_resource type="PackedScene" uid="uid://b2uhlmvmoj1r" path="res://scenes/interactable_object.tscn" id="1_cvxjs"]
+[ext_resource type="Texture2D" uid="uid://dlx48154bp0xq" path="res://assets/images/catito.png" id="2_4b83y"]
+[ext_resource type="Script" path="res://scripts/debug_cat.gd" id="2_aaj5i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr3xk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4b83y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pj0by"]
+radius = 29.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srx2e"]
+
+[node name="DebugCat" instance=ExtResource("1_cvxjs")]
+script = ExtResource("2_aaj5i")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_dr3xk")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_pj0by")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_srx2e")
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
